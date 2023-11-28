@@ -18,7 +18,7 @@ public class Controller : MonoBehaviour
     public Transform CameraPosition;   
 
     [Header("Control Settings")]
-    public float MouseSensitivity = 500.0f;
+    public float MouseSensitivity = 1.0f;
     public float PlayerSpeed = 5.0f;
     public float RunningSpeed = 7.0f;
     public float JumpSpeed = 5.0f;   
@@ -27,7 +27,7 @@ public class Controller : MonoBehaviour
     bool m_IsPaused = false;
 
     float m_VerticalAngle, m_HorizontalAngle;
-    public float Speed { get; private set; } = 0.0f;
+    public float Speed { get; private set; } = 2.0f;
 
     public bool LockControl { get; set; }
     public bool CanPause { get; set; } = true;
