@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -10,9 +11,10 @@ using UnityEditor;
 
 public class Controller : MonoBehaviour
 {
-    
     public static Controller Instance { get; protected set; }
 
+    public PlayableDirector timeline;
+    
     public Camera MainCamera;
 
     public Transform CameraPosition;   
@@ -40,7 +42,7 @@ public class Controller : MonoBehaviour
     float m_GroundedTimer;
     float m_SpeedAtJump = 0.0f;
 
-    
+    private bool walking;
 
     void Awake()
     {
@@ -70,6 +72,25 @@ public class Controller : MonoBehaviour
     {
         bool wasGrounded = m_Grounded;
         bool loosedGrounding = false;
+        
+        if ((Input.GetAxis("Horizontal") != 0) || (Input.GetAxisRaw("Vertical") != 0) && (m_Grounded))
+        {
+            walking = true;
+        }
+        else
+        {
+            walking = false;
+        };
+        if (walking == true)
+        {
+            timeline.Play();
+        }
+        else
+        {
+            timeline.Pause();
+        }
+        
+        
 
         //we define our own grounded and not use the Character controller one as the character controller can flicker
         //between grounded/not grounded on small step and the like. So we actually make the controller "not grounded" only
