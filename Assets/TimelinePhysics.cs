@@ -6,13 +6,9 @@ using UnityEngine.Playables;
 public class TimelinePhysics : MonoBehaviour
 {
     public PlayableDirector timeline;
-    void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        
-    }
-
-    void Update()
-    {
-        
+        gameObject.SetActive(false);
+        timeline.Play();
     }
 }
