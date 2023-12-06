@@ -190,8 +190,8 @@ MonoBehaviour:
     m_Objects: []
   m_TrackProperties:
     volume: 1
-    stereoPan: 0
-    spatialBlend: 0
+    stereoPan: 0.21
+    spatialBlend: 0.823
 --- !u!114 &-6767204639140368435
 MonoBehaviour:
   m_ObjectHideFlags: 1
